@@ -1,0 +1,14 @@
+services:
+    solr:
+        env_file:
+            - ./.env
+        build:
+            context: .
+        networks:
+            - solr
+        ports:
+            - "8983:8983"
+        command: solr-create -c collection1 -d /opt/solr/server/solr/configsets/ibexa
+
+networks:
+    solr:
