@@ -1,0 +1,10 @@
+services:
+    solr:
+        image: ghcr.io/ibexa/core/solr
+        healthcheck:
+            test: [ "CMD", "solr", "status" ]
+            interval: 10s
+            timeout: 5s
+            retries: 10
+        ports:
+            - "${SOLR_BIND_TO_HOST}:${SOLR_BIND_TO_PORT}:8983"
